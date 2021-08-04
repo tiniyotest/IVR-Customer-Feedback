@@ -16,7 +16,7 @@ def lan():
                       "Please update your language." +
                       "Press 1 for English." +
                       "Press 2 for French." +
-                      "Press 3 for Spanish."
+                      "Press 3 for Spanish." +
                       "To repeat Press 0.", loop=3)
     return tiniyoml(response)
 
