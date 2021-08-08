@@ -5,6 +5,19 @@ from config import *
 
 app = Flask(__name__)
 
+@app.route('/', methods=['GET', 'POST'])
+def lan1():
+    response = VoiceResponse()
+    with response.gather(
+            num_digits=1, action=url_for('menu1', _scheme='http', _external=True), method="POST"
+    ) as g:
+        g.say(message="Hello, We are representing from Tiniyo." +
+                      "Please update your language." +
+                      "Press 1 for English." +
+                      "Press 2 for French." +
+                      "Press 3 for Spanish." +
+                      "To repeat Press 0.", loop=3)
+    return tiniyoml(response)
 
 @app.route('/ivrfeedback/tiniyo', methods=['GET', 'POST'])
 def lan():
